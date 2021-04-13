@@ -46,7 +46,7 @@ def cmd():
                     continue
                 else:
                     wifi_profile["ssid"] = name
-                    profile_info_pass = subprocess.run(["netsh", "wlan", "show", "profile", name, "key=clear"], capture_output= True).stdout.decode()
+                    profile_info_pass = subprocess.run(["netsh", "wlan", "show", "profiles", "name=", name, "key=clear"], capture_output= True).stdout.decode()
                     password = re.search("Key Content            :(.*\r)", profile_info_pass)
 
                     if password == None:
@@ -57,7 +57,7 @@ def cmd():
                     wifi_list.append(wifi_profile)
 
         for x in range(len(wifi_list)):
-            print(P+"", wifi_list[x])
+            print(R+"", wifi_list[x])
 
 def banner():
     print (G+'''Product of Edson corperations (EDCORP).'''+O+"|")
@@ -70,7 +70,7 @@ def banner():
    ##            |_ `__| __ __ __ ___            ##
    ##            |__[__|[__[__]| '|__].          ##
    ##                            _|              ##
-   ################################################                            
+   ################################################               
      ''')   
     print("")
     print (G +'''  .;'                     `;,    ''')
@@ -83,4 +83,16 @@ def banner():
     print (G + "          " + GR + "/       \\" + G + "        ")
     cmd()
 
-banner()
+def separate():
+    if platform == "Linux":
+        print("SYSTEM FAILURE.")
+        print("View logs by 'edify -l'command ")
+        command = input()
+        if command == edify -l:
+            print("This only works for windows")
+        else:
+            pass
+    else:
+        banner()
+
+separate()
